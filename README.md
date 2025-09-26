@@ -1,7 +1,7 @@
 # ☕ Face Recognition Cafe System
 
 A modern AI-powered cafe system with face recognition, purchase tracking, and mood-based recommendations.
-
+![Face Recognition Cafe Demo](./docs/images/kasir_face_demo_small.gif)
 ## Features
 
 - 🎭 **AI Mood-Based Recommendations** - Tell us your mood, get perfect drink suggestions
@@ -199,3 +199,4 @@ Proprietary and confidential. All rights reserved.
 
 
 **🚀 Ready to get started? Run `python init_database.py` then `python main.py`**
+
