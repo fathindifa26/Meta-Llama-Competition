@@ -1,0 +1,9 @@
+flask==3.0.0
+insightface
+mediapipe==0.10.5
+numpy==1.26.3
+opencv-python==4.9.0.80
+openvino>=2022.3.0
+scipy>=1.7.0
+ultralytics==8.0.227
+onnxruntime==1.16.3

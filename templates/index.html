@@ -1,0 +1,68 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir Face Recognition System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-camera"></i> Kasir Face Recognition System</h1>
+            <p>Sistem Kasir dengan Pengenalan Wajah</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="purchase-section">
+            <div class="input-group">
+                <input id="purchase-input" 
+                       type="text"
+                       placeholder="Mau beli apa hari ini?" 
+                       maxlength="100">
+                <button id="purchase-btn" disabled>
+                    <i class="fas fa-shopping-cart"></i> Beli
+                </button>
+            </div>
+            <div id="status-indicator" class="status-indicator">
+                <i class="fas fa-user-slash"></i>
+                <span>Tidak ada customer terdeteksi</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="video-section">
+                <div class="video-container">
+                    <img id="video-stream" src="/video_feed" alt="Video Stream">
+                    <div class="video-overlay">
+                        <div id="connection-status" class="connection-status">
+                            <i class="fas fa-circle"></i> Live
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="logs-section">
+                <div class="logs-header">
+                    <h3><i class="fas fa-list"></i> Activity Logs</h3>
+                    <button id="clear-logs" class="btn-secondary">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                </div>
+                <div id="log-box" class="log-box"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Face Recognition Kasir System</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

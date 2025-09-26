@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Menu - Face Recognition Cafe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu_selection.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mood.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>☕ Face Recognition Cafe</h1>
+            <div class="customer-info">
+                <span id="customerGreeting">Selamat datang!</span>
+                <button id="resetSession" class="btn-secondary">Reset Session</button>
+            </div>
+        </header>
+
+        <!-- ✅ Mood-Based Recommendation Section -->
+        <section class="mood-section" id="moodSection" style="display: none;">
+            <div class="mood-header">
+                <h2>🎭 Rekomendasi Berdasarkan Perasaanmu</h2>
+                <p>Ceritakan perasaanmu hari ini, kami akan carikan minuman yang paling cocok!</p>
+            </div>
+            
+            <div class="mood-input-container">
+                <div class="mood-textarea-wrapper">
+                    <textarea 
+                        id="moodInput" 
+                        placeholder="Contoh: 'Hari ini capek banget, butuh yang bikin semangat tapi gak terlalu strong...' atau 'Lagi stress, pengen yang menenangkan'"
+                        maxlength="200"
+                        rows="3"></textarea>
+                    <div class="char-counter">
+                        <span id="charCount">0</span>/200
+                    </div>
+                </div>
+                <button id="findMoodMatch" class="btn-mood">
+                    ✨ Carikan Untukku
+                </button>
+            </div>
+            
+            <!-- Quick mood buttons -->
+            <div class="quick-moods">
+                <h4>🚀 Atau pilih mood cepat:</h4>
+                <div class="mood-buttons-grid" id="quickMoods">
+                    <!-- Akan diisi oleh JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Recommendation result -->
+            <div class="mood-result" id="moodResult" style="display:none;">
+                <!-- AI recommendation result akan muncul di sini -->
+            </div>
+        </section>
+
+        <!-- ✅ Traditional Recommendation Sections -->
+        <section class="recommendations">
+            <div id="last-purchase-section" class="recommendation-section" style="display: none;">
+                <h3 class="recommendation-title last-purchase">
+                    <i class="fas fa-crown"></i> Terakhir Dipesan
+                </h3>
+                <div id="last-purchase-card" class="recommendation-card last-purchase">
+                    <!-- Content rendered by JS -->
+                </div>
+            </div>
+
+            <div id="popular-section" class="recommendation-section" style="display: none;">
+                <h3 class="recommendation-title popular">
+                    <i class="fas fa-fire"></i> Menu Populer
+                </h3>
+                <div id="popular-card" class="recommendation-card popular">
+                    <!-- Content rendered by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ✅ Section Divider -->
+        <div class="section-divider">
+            <div class="section-title">
+                <i class="fas fa-utensils"></i> Semua Menu
+            </div>
+        </div>
+
+        <!-- ✅ Menu Grid -->
+        <section class="menu-section">
+            <div id="menu-grid" class="menu-grid">
+                <!-- Menu items akan dimuat di sini -->
+            </div>
+        </section>
+    </div>
+
+    <!-- ✅ Floating Cart -->
+    <div id="floating-cart" class="floating-cart hidden">
+        <button id="view-cart" class="cart-button">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </button>
+    </div>
+
+    <!-- ✅ Order Summary Modal -->
+    <div id="order-summary" class="order-summary hidden">
+        <div class="summary-card">
+            <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+            <div id="order-items" class="order-items">
+                <!-- Order items will be rendered here -->
+            </div>
+            <div class="total-section">
+                <div class="total-line">
+                    <span>Total:</span>
+                    <span id="total-amount">Rp 0</span>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button id="confirm-order" class="btn-primary">
+                    <i class="fas fa-check"></i> Confirm Order
+                </button>
+                <button id="clear-order" class="btn-secondary">
+                    <i class="fas fa-trash"></i> Clear Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p id="loadingText">Memproses...</p>
+        </div>
+    </div>
+
+    <!-- ✅ JavaScript Files -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu_selection.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/mood.js') }}"></script>
+</body>
+</html>

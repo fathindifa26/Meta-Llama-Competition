@@ -1,0 +1,91 @@
+<!-- templates/face_recognition.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition - Cafe System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/face_recognition.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-camera"></i> Welcome to Our Cafe</h1>
+            <p>Silakan berdiri di depan kamera untuk identifikasi</p>
+        </header>
+
+        <main class="main-content">
+            <div class="camera-section">
+                <div class="camera-container">
+                    <img id="video-stream" src="/video_feed" alt="Video Stream">
+                    <div class="camera-overlay">
+                        <div id="recognition-status" class="recognition-status scanning">
+                            <i class="fas fa-search"></i>
+                            <span>Scanning for face...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="welcome-card">
+                    <div id="customer-info" class="customer-info hidden">
+                        <div class="customer-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="customer-details">
+                            <h3 id="customer-name">Welcome!</h3>
+                            <p id="customer-message">Please wait...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons hidden" id="action-buttons">
+                        <button id="proceed-to-menu" class="btn-primary">
+                            <i class="fas fa-coffee"></i>
+                            Proceed to Menu
+                        </button>
+                        <button id="skip-order" class="btn-secondary">
+                            <i class="fas fa-times"></i>
+                            Skip for Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ✅ GANTI BAGIAN INI: Activity Log → Welcome Section -->
+                <div class="welcome-section" id="welcome-section">
+                    <div class="welcome-content">
+                        <div class="welcome-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h3>Selamat Datang di Cafe Kami!</h3>
+                        <p class="welcome-text">Kami menggunakan teknologi pengenalan wajah untuk memberikan pengalaman yang lebih personal.</p>
+                        
+                        <!-- Welcome message yang berubah berdasarkan status -->
+                        <div id="dynamic-welcome" class="dynamic-welcome">
+                            <p id="welcome-message">Mohon tunggu sebentar sementara kami mengenali Anda...</p>
+                        </div>
+                        
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Rekomendasi personal berdasarkan pesanan sebelumnya</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-history"></i>
+                                <span>Riwayat pembelian tersimpan otomatis</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-magic"></i>
+                                <span>Rekomendasi berdasarkan mood dengan AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/face_recognition.js') }}"></script>
+</body>
+</html>
