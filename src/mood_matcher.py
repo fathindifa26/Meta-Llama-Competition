@@ -8,7 +8,7 @@ class MoodMatcher:
         self.db = db
         self.client = OpenAI(
             base_url="https://openrouter.ai/api/v1",
-            api_key="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",
+            # api_key=APIKEY
         )
         
     def create_ai_prompt(self, user_input: str) -> str:
@@ -201,4 +201,5 @@ MOOD_PRESETS = {
 
 def get_mood_preset(mood_key: str) -> str:
     """Get predefined mood text."""
+
     return MOOD_PRESETS.get(mood_key, mood_key)
