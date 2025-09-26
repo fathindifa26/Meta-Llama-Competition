@@ -26,7 +26,7 @@ The system will automatically download required models on first run, but you can
    - Manual: [YOLOv8 Face Model](https://github.com/ultralytics/ultralytics)
 
 2. **resnet100.onnx** (Face Recognition)
-   - Download: [Google Drive](https://drive.google.com/drive/u/2/folders/1LR8ypozz8BefKPZasj0GMOyIWidtt-Qi)
+   - Download: You can find for yourself
    - Place in root project directory
 
 ### OpenAI API (for Mood Recommendations)
@@ -196,12 +196,6 @@ This is a private project. For access or contributions, contact the development 
 
 Proprietary and confidential. All rights reserved.
 
-## Support
 
-For technical support or questions:
-- 📧 Contact: [Development Team]
-- 🔗 Repository: [GitLab](https://gitlab.com/asal-bapak-senang/kasir-face)
-
----
 
 **🚀 Ready to get started? Run `python init_database.py` then `python main.py`**
